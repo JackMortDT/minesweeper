@@ -10,7 +10,16 @@ defmodule Minesweeper.MixProject do
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      dialyzer: [
+        flags: [:unmatched_returns, :error_handling, :underspecs, :unknown]
+      ],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -48,7 +57,12 @@ defmodule Minesweeper.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      # Developer tools
+      {:dialyxir, "~> 1.2.0", only: [:dev], runtime: false},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      # Testing
+      {:excoveralls, "~> 0.15.0", only: :test}
     ]
   end
 

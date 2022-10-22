@@ -32,3 +32,5 @@ minesweeper-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Other
+.custom_iex.exs
