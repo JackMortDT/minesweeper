@@ -62,6 +62,7 @@ defmodule Minesweeper.MixProject do
       # Developer tools
       {:dialyxir, "~> 1.2.0", only: [:dev], runtime: false},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:git_hooks, "~> 0.7.3"},
       # Testing
       {:excoveralls, "~> 0.15.0", only: :test}
     ]
